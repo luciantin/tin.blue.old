@@ -101,7 +101,7 @@ const CubeBackground = () => {
           <SpinningMesh position={[5, 1, -2]} color='pink' speed={1} />
         </group>
         {/* Allows us to move the canvas around for different prespectives */}
-        {/* <OrbitControls /> */}
+        <OrbitControls />
       </Canvas>
     </>
   );

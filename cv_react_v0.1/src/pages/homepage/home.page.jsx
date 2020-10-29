@@ -48,7 +48,7 @@ const HomePage = () => {
           overflow: "hidden"
         }}
       >
-        <div
+        {/* <div
           style={{
             backgroundColor: "green",
             width: "100%",
@@ -57,10 +57,10 @@ const HomePage = () => {
             position: "absolute",
             zIndex: "-1"
           }}
-        >
+        > */}
             <CubeBackground></CubeBackground>
-        </div>
-        <p>GSDGSDFGdsg adfg stdh aerg haerg aerg</p>
+        {/* </div> */}
+        {/* <p>GSDGSDFGdsg adfg stdh aerg haerg aerg</p> */}
       </div>
       <div
         style={{
