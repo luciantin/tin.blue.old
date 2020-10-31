@@ -1,9 +1,11 @@
-import React, { Component, useRef, useState,useMemo } from 'react'
+import React, { Component, useRef, useState,useMemo, Suspense } from 'react'
 import * as THREE from 'three'
 import { Canvas, useFrame, useLoader,useUpdate} from "react-three-fiber";
 import { softShadows, MeshWobbleMaterial, OrbitControls } from "drei";
 import { useSpring, a } from "react-spring/three";
-import { Physics, usePlane, useBox } from '@react-three/cannon'
+import { Physics, usePlane, useBox, useConvexPolyhedron } from '@react-three/cannon'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { ConvexGeometry } from 'three/examples/jsm/geometries/ConvexGeometry'
 
 // import roboto from '../../common/Roboto_Regular.json'
 
@@ -193,6 +195,39 @@ const SpinningMesh = ({ position, color, speed, args }) => {
   };
   
 
+  function Diamond(props) {
+    const { nodes } = useLoader(GLTFLoader, '/shape2TstModel.glb')
+    const geo = useMemo(() => {
+      const g = new THREE.Geometry().fromBufferGeometry(nodes.Cube.geometry)
+      // Merge duplicate vertices resulting from glTF export.
+      // Cannon assumes contiguous, closed meshes to work
+      // g.mergeVertices()
+      // Ensure loaded mesh is convex and create faces if necessary
+      return new ConvexGeometry(g.vertices)
+    }, [nodes])
+  
+    const [ref] = useConvexPolyhedron(() => ({ mass: 100, ...props, args: geo }))
+    return (
+      <mesh castShadow receiveShadow ref={ref} geometry={geo} {...props} dispose={null}>
+        <meshStandardMaterial attach="material"  />
+      </mesh>
+    )
+  }
+
+  function Asset({ url }) {
+    const { nodes } = useLoader(GLTFLoader, '/shape2TstModel.glb')
+    console.log(nodes)
+    const g = new THREE.Geometry().fromBufferGeometry(nodes.Cube.geometry)
+    const ref = useRef();
+
+    return(
+      <mesh ref={ref} geometry={g} >
+        <meshStandardMaterial attach="material"  />
+      </mesh>
+      )
+    // return (<p>dasda</p>)
+    // return <primitive object={gltf.scene} />
+  }
 
 class HomePage extends Component {
     constructor(){
@@ -203,21 +238,31 @@ class HomePage extends Component {
         }
     }
 
+
     render(){
-        return(
+
+      return(
             <div className="HomePage">
+              
                  <Canvas shadowMap sRGB gl={{ alpha: false }} camera={{ position: [-1, 2, 5], fov: 50 }}>
+                 <Suspense >
+                    <Asset url="/shape2TstModel.glb"></Asset>
+              </Suspense>
                     <color attach="background" args={['lightblue']} />
                     <hemisphereLight intensity={0.35} />
                     <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={2} castShadow />
-                    <Physics>
+                    {/* <Suspense fallback={<Cube />}> */}
+                      {/* <Asset url="/tinTstModel.glb" /> */}
+                    {/* </Suspense> */}
+                    {/* <Physics>
                       <Plane />
+                      <Diamond position={[1, 5, 0]} rotation={[0.4, 0.1, 0.1]} /> */}
                     {/* <Cube /> */}
                     {/* <Cube position={[0, 10, -2]} /> */}
                     {/* <Cube position={[0, 20, -2]} /> */}
                     {/* <Jumbo /> */}
-                      <TextA  position={[0, 20, -2]}> </TextA>
-                    </Physics>
+                      {/* <TextA  position={[0, 20, -2]}> </TextA> */}
+                    {/* </Physics> */}
                     <OrbitControls />
                 </Canvas>
             </div>
