@@ -2,6 +2,7 @@
   "name": "three_react_tst_2_cannon",
   "version": "0.1.0",
   "private": true,
+  "homepage": "build",
   "dependencies": {
     "@react-three/cannon": "^0.5.3",
     "@testing-library/jest-dom": "^5.11.4",
