@@ -211,6 +211,9 @@ function App() {
         <ModelTst3 modelId={"Contact"} position={[5, 40, -1.5]} mass={100} rotation={[0,-1,0]}  scale={[1,1,1]} />
         <ModelTst3 modelId={"Skills"} position={[5, 28, -2]} mass={100}  rotation={[0,-1,0]}  scale={[1.5,1.5,1.5]} />
         <ModelTst3 modelId={"Projects"} position={[5, 20, -2]} mass={100}  rotation={[0,-1,0]}  scale={[2,2,2]} />
+        <ModelTst3 modelId={"T"} position={[-20, 30, 25]} mass={100}  rotation={[0,0,0]}  scale={[1,1,1]} />
+        <ModelTst3 modelId={"I"} position={[-20, 30, 16]} mass={100}  rotation={[0,0,0]}  scale={[1,1,1]} />
+        <ModelTst3 modelId={"N"} position={[-20, 30, 10]} mass={100}  rotation={[0,0,0]}  scale={[1,1,1]} />
       </Physics>
       {/* <Physics> */}
         {/* <Plane /> */}
@@ -218,7 +221,7 @@ function App() {
         {/* <SpinningMesh position={[0,1,0]}   speed={0} args={[3,2,1]} color='lightblue' />
         <SpinningMesh position={[-2,1,-5]} speed={6}  color='pink' />
         <SpinningMesh position={[5,1,-2]}  speed={6} color='pink' /> */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </Canvas>      
     </>
   );
