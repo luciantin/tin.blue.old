@@ -117,14 +117,16 @@ function ModelTst3(props) {
     return new ConvexGeometry(g.vertices)
   }, [nodes])
   // console.log()
-  const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0], ...props, args:[5,2,2], }))
-    // const [ref] = useConvexPolyhedron(() => ({ mass: props.mass,material:{friction:1e10,restitution:0.01},   ...props, args: geo }))
-  console.log(geo)
+  const [ref] = useBox(() => ({ mass: 1, position: [0, 5, 0],material:{friction:1000,restitution:0.01}, ...props, args:[2*props.scale[0],2*props.scale[1],6*props.scale[2]], }))
+    // const [ref] = useConvexPolyhedron(() => ({ mass: props.mass,material:{friction:1000,restitution:0.01},   ...props, args: geo }))
+  console.log(nodes)
   return (
-    <mesh ref={ref} geometry={nodes.[props.modelId].geometry} {...props} >
+    <mesh ref={ref} geometry={nodes.[props.modelId].geometry} material={nodes.[props.modelId].material} {...props} >
       {/* <boxBufferGeometry attach="geometry" args={[10,2,2]} /> */}
       {/* <ConvexGeometry  */}
-      <meshStandardMaterial attach="material"  color="blue" />
+      {/* <meshLambertMaterial   attach="material"    /> */}
+      {/* <meshStandardMaterial   attach="material"    /> */}
+      {/* <convexGeometry /> */}
 
       {/* <ConvexBufferGeometry */}
     </mesh>
@@ -146,7 +148,7 @@ function App() {
       // shadowMap 
       sRGB 
       gl={{ alpha: false }} 
-      camera={{ position: [-1, 2, 5], fov: 50 }}
+      camera={{ position: [25, 10, 4], fov: 50,rotation:[0,2,0]}} // rotation:[0,2,0]  not working
       colorManagement
       >                 
       <color attach="background" args={['lightblue']} />
@@ -169,7 +171,7 @@ function App() {
       <Physics
         // gravity={[0, 0, 30]}
         step={1/60}
-        iterations={4}
+        iterations={8}
         allowSleep={false}
         // defaultContactMaterial={{
         //   contactEquationStiffness: 1e8,
@@ -206,8 +208,9 @@ function App() {
         {/* <ModelTst3 modelId={"Projects"} position={[-5, 10, -1.5]} mass={100} /> */}
         {/* <ModelTst2 modelId={"Skills"} position={[5, 3, 0]} mass={100} /> */}
         {/* <ModelTst3 modelId={"Contact"} position={[5, 6, -2]} mass={100} /> */}
-        <ModelTst3 modelId={"Contact"} position={[5, 10, -2]} mass={100} />
-        <ModelTst3 modelId={"Contact"} position={[5, 6, -2]} mass={100} />
+        <ModelTst3 modelId={"Contact"} position={[5, 40, -1.5]} mass={100} rotation={[0,-1,0]}  scale={[1,1,1]} />
+        <ModelTst3 modelId={"Skills"} position={[5, 28, -2]} mass={100}  rotation={[0,-1,0]}  scale={[1.5,1.5,1.5]} />
+        <ModelTst3 modelId={"Projects"} position={[5, 20, -2]} mass={100}  rotation={[0,-1,0]}  scale={[2,2,2]} />
       </Physics>
       {/* <Physics> */}
         {/* <Plane /> */}
