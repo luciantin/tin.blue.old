@@ -7,3 +7,8 @@
 * npm install  @react-three/cannon
 * npm install react-spring
 * npm install drei
+
+
+* for deplyment add to package.json  "homepage": "buid"
+
+* geometry.center()

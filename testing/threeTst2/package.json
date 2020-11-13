@@ -1,0 +1,17 @@
+{
+  "name": "threetst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@johh/three-effectcomposer": "^0.1.0",
+    "stats": "^1.0.0",
+    "three": "^0.121.1",
+    "three-css3drenderer": "^1.0.1"
+  }
+}
