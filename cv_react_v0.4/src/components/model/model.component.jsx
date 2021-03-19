@@ -16,6 +16,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // position - [x,y,z]
 // rotation - [rx,ry,rz] in radians
 // debug - True/False
+
 function ModelBB({src,modelId,material,pmaterial,mass,scale,position,rotation,debug}) { 
   const { nodes } = useLoader(GLTFLoader, src)
   if(debug) console.log(nodes);

@@ -1,0 +1,7 @@
+[{"pname": "ESP32Stereo", "pdesc": "description", "pgit": "https://github.com/luciantin/ESP32Stereo", "plink": "none", "tstack": ["python", "opencv"], "isWip": true, "image": ""},
+  {"pname": "ESP32Cam-PyController", "pdesc": "description", "pgit": "https://github.com/luciantin/ESP32Cam-PyController", "plink": "none", "tstack": ["cpp", "ESP32", "PlatformIO"], "isWip": false, "image": ""},
+  {"pname": "tiamat", "pdesc": "description", "pgit": "https://github.com/luciantin/tiamat", "plink": "https://github.com/luciantin/tiamat", "tstack": ["vue", "express", "scss", "firebase"], "isWip": false, "image": ""},
+  {"pname": "3Dof", "pdesc": "description", "pgit": "https://github.com/luciantin/MRZ-Detector", "plink": "none", "tstack": ["python", "pytorch", "opencv"], "isWip": false, "image": ""},
+  {"pname": "SpaceballBench", "pdesc": "description", "pgit": "https://github.com/luciantin/SpaceballBench", "plink": "none", "tstack": ["kubernetes", "flask", "express", "redis", "mongodb", "kafka"], "isWip": true, "image": ""},
+  {"pname": "Vet", "pdesc": "College \"group\" project ", "pgit": "https://github.com/luciantin/faks-Baze", "plink": "none", "tstack": ["oracle", "arch", "stackoverflow", "cpp"], "isWip": false, "image": ""},
+  {"pname": "BI", "pdesc": "description", "pgit": "https://github.com/luciantin/faks-SPI", "plink": "none", "tstack": ["python", "sqlAlchemy", "docker", "mysql", "pentaho"], "isWip": true, "image": ""}]
