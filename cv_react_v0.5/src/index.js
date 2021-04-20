@@ -4,13 +4,13 @@ import './index.css';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Homepage from './view/homepage/homepage.view'
+// import Homepage from './view/homepage/homepage.view'
 import Projects from "./view/projects/projects.view";
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Homepage} />
+            <Route exact path="/" component={Projects} />
             <Route path="/projects" component={Projects} />
         </Switch>
     </BrowserRouter>,
